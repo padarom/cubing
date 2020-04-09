@@ -1,5 +1,40 @@
 <template>
   <svg width="200" height="200" viewBox="-1.1 -1.1 5.2 5.2">
+    <defs>
+      <marker id="arrow-1"
+        markerWidth="4"
+        markerHeight="3"
+        refX="2"
+        refY="1.5"
+        orient="auto-start-reverse"
+        markerUnits="strokeWidth"
+      >
+        <path d="M0,0 L0,3 L4,1.5 z" fill="red" />
+      </marker>
+
+      <marker id="arrow-2"
+        markerWidth="4"
+        markerHeight="3"
+        refX="2"
+        refY="1.5"
+        orient="auto-start-reverse"
+        markerUnits="strokeWidth"
+      >
+        <path d="M0,0 L0,3 L4,1.5 z" fill="blue" />
+      </marker>
+
+      <marker id="arrow-background"
+        markerWidth="3"
+        markerHeight="2.25"
+        refX="1.3"
+        refY="1.125"
+        orient="auto-start-reverse"
+        markerUnits="strokeWidth"
+      >
+        <path d="M0,0 L0,2.25 L3,1.125 z" fill="black" />
+      </marker>
+    </defs>
+    
     <!-- Side layers -->
     <g v-for="(side, i) in [faces.back, faces.right, faces.front, faces.left]" :key="i"
       stroke="#000000" stroke-width="0.06"
@@ -34,6 +69,30 @@
         stroke-width="0.1"
       />
     </g>
+
+    <g class="arrow" v-for="(line, i) in arrows" :key="i">
+      <!-- Background -->
+      <line
+        stroke-width="0.16" stroke="black"
+        :x1="(line[0] % 3) + 0.5"
+        :x2="(line[1] % 3) + 0.5"
+        :y1="(line[0] / 3).toString().substr(0,1) + '.5'"
+        :y2="(line[1] / 3).toString().substr(0,1) + '.5'"
+        marker-end="url(#arrow-background)"
+        :marker-start="!line[2] ? `url(#arrow-background)` : ''"
+      />
+
+      <!-- Main line -->
+      <line
+        stroke-width="0.08" :stroke="(line[3] || 1) == 1 ? 'red' : 'blue'"
+        :x1="(line[0] % 3) + 0.5"
+        :x2="(line[1] % 3) + 0.5"
+        :y1="(line[0] / 3).toString().substr(0,1) + '.5'"
+        :y2="(line[1] / 3).toString().substr(0,1) + '.5'"
+        :marker-end="`url(#arrow-${line[3] || 1 })`"
+        :marker-start="!line[2] ? `url(#arrow-${line[3] || 1 })` : ''"
+      />
+    </g>
   </svg>
 </template>
 
@@ -49,6 +108,14 @@ export default {
     topColor: {
       type: String,
       default: "yellow",
+    },
+    grayscale: {
+      type: Boolean,
+      default: false,
+    },
+    arrows: {
+      type: Array,
+      default: [],
     },
   },
 
@@ -73,8 +140,18 @@ export default {
     },
 
     colorScheme () {
+      const yellow = 'yellow'
+      
+      if (this.grayscale) {
+        const gray = 'gray'
+
+        return {
+          U: yellow, R: gray, F: gray, L: gray, B: gray, D: gray
+        }
+      }
+
       return {
-        U: 'yellow',
+        U: yellow,
         R: 'green',
         F: 'red',
         L: 'blue',
