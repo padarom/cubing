@@ -1,5 +1,5 @@
 <template>
-  <svg width="200" height="200" viewBox="-1.1 -1.1 5.2 5.2">
+  <svg class="cube-picture" width="200" height="200" viewBox="-1.1 -1.1 5.2 5.2">
     <defs>
       <marker id="arrow-1"
         markerWidth="4"
@@ -67,31 +67,34 @@
         :fill="colorScheme[face]"
         stroke="#000000"
         stroke-width="0.1"
+        rx="0.02"
       />
     </g>
 
-    <g class="arrow" v-for="(line, i) in arrows" :key="i">
-      <!-- Background -->
-      <line
-        stroke-width="0.16" stroke="black"
-        :x1="(line[0] % 3) + 0.5"
-        :x2="(line[1] % 3) + 0.5"
-        :y1="(line[0] / 3).toString().substr(0,1) + '.5'"
-        :y2="(line[1] / 3).toString().substr(0,1) + '.5'"
-        marker-end="url(#arrow-background)"
-        :marker-start="!line[2] ? `url(#arrow-background)` : ''"
-      />
+    <g class="arrows">
+      <g class="arrow" v-for="(line, i) in arrows" :key="i">
+        <!-- Background -->
+        <line
+          stroke-width="0.16" stroke="black"
+          :x1="(line[0] % 3) + 0.5"
+          :x2="(line[1] % 3) + 0.5"
+          :y1="(line[0] / 3).toString().substr(0,1) + '.5'"
+          :y2="(line[1] / 3).toString().substr(0,1) + '.5'"
+          marker-end="url(#arrow-background)"
+          :marker-start="!line[2] ? `url(#arrow-background)` : ''"
+        />
 
-      <!-- Main line -->
-      <line
-        stroke-width="0.08" :stroke="(line[3] || 1) == 1 ? 'red' : 'blue'"
-        :x1="(line[0] % 3) + 0.5"
-        :x2="(line[1] % 3) + 0.5"
-        :y1="(line[0] / 3).toString().substr(0,1) + '.5'"
-        :y2="(line[1] / 3).toString().substr(0,1) + '.5'"
-        :marker-end="`url(#arrow-${line[3] || 1 })`"
-        :marker-start="!line[2] ? `url(#arrow-${line[3] || 1 })` : ''"
-      />
+        <!-- Main line -->
+        <line
+          stroke-width="0.08" :stroke="(line[3] || 1) == 1 ? 'red' : 'blue'"
+          :x1="(line[0] % 3) + 0.5"
+          :x2="(line[1] % 3) + 0.5"
+          :y1="(line[0] / 3).toString().substr(0,1) + '.5'"
+          :y2="(line[1] / 3).toString().substr(0,1) + '.5'"
+          :marker-end="`url(#arrow-${line[3] || 1 })`"
+          :marker-start="!line[2] ? `url(#arrow-${line[3] || 1 })` : ''"
+        />
+      </g>
     </g>
   </svg>
 </template>
@@ -152,9 +155,9 @@ export default {
 
       return {
         U: yellow,
-        R: 'green',
-        F: 'red',
-        L: 'blue',
+        R: '#63AD26',
+        F: '#B20026',
+        L: '#0060BA',
         B: 'orange',
         D: 'white',
       }
@@ -162,3 +165,13 @@ export default {
   },
 }
 </script>
+
+<style scoped lang="stylus">
+.cube-picture
+  .arrows
+    opacity: 0.2
+    transition: opacity 0.2s
+
+  &:hover .arrows
+    opacity: 1
+</style>
