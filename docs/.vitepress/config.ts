@@ -1,8 +1,22 @@
 import { defineConfig } from 'vitepress'
+import { VitePWA } from 'vite-plugin-pwa'
+import { PwaPlugin, buildPwa } from './pwa'
 
 export default defineConfig({
   title: 'Padarom\'s Cubing Library',
   cleanUrls: 'without-subfolders',
+
+  vite: {
+    plugins: [
+      PwaPlugin,
+    ],
+  },
+
+  buildEnd: buildPwa,
+
+  head: [
+  //  ['script', { src: '/registerSW.js' }],
+  ],
 
   themeConfig: {
     nav: [
