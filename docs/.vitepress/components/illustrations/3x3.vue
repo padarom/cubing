@@ -1,3 +1,76 @@
+<script setup lang="ts">
+import Cube from 'cubejs'
+import { computed } from 'vue'
+
+const props = defineProps({
+  scramble: {
+    type: String,
+    default: '',
+  },
+  topColor: {
+    type: String,
+    default: "yellow",
+  },
+  grayscale: {
+    type: Boolean,
+    default: false,
+  },
+  arrows: {
+    type: Array,
+    default: () => [],
+  },
+  inverse: {
+    type: Boolean,
+    default: false,
+  },
+  initString: {
+    type: String,
+  },
+})
+
+const cube = computed(() => {
+  if (props.initString) return Cube.fromString(props.initString)
+
+  const cube = new Cube()
+  cube.move(props.inverse ? Cube.inverse(props.scramble) : props.scramble)
+
+  return cube
+})
+
+const faces = computed(() => {
+  const faces = cube.value.asString().match(/.{1,9}/g)
+
+  return {
+    top: faces[0],
+    front: faces[2].substr(0, 3),
+    left: faces[4].substr(0, 3),
+    right: faces[1].substr(0, 3),
+    back: faces[5].substr(0, 3),
+  }
+})
+
+const colorScheme = computed(() => {
+  const yellow = 'yellow'
+  
+  if (props.grayscale) {
+    const gray = 'gray'
+
+    return {
+      U: yellow, R: gray, F: gray, L: gray, B: gray, D: gray
+    }
+  }
+
+  return {
+    U: yellow,
+    R: '#63AD26',
+    F: '#B20026',
+    L: '#0060BA',
+    B: 'orange',
+    D: 'white',
+  }
+})
+</script>
+
 <template>
   <svg class="cube-picture" width="200" height="200" viewBox="-1.1 -1.1 5.2 5.2">
     <defs>
@@ -98,73 +171,6 @@
     </g>
   </svg>
 </template>
-
-<script>
-import Cube from 'cubejs'
-
-export default {
-  props: {
-    scramble: {
-      type: String,
-      default: "",
-    },
-    topColor: {
-      type: String,
-      default: "yellow",
-    },
-    grayscale: {
-      type: Boolean,
-      default: false,
-    },
-    arrows: {
-      type: Array,
-      default: [],
-    },
-  },
-
-  computed: {
-    cube () {
-      const cube = new Cube()
-      cube.move(this.scramble)
-
-      return cube
-    },
-
-    faces () {
-      const faces = this.cube.asString().match(/.{1,9}/g)
-
-      return {
-        top: faces[0],
-        front: faces[2].substr(0, 3),
-        left: faces[4].substr(0, 3),
-        right: faces[1].substr(0, 3),
-        back: faces[5].substr(0, 3),
-      }
-    },
-
-    colorScheme () {
-      const yellow = 'yellow'
-      
-      if (this.grayscale) {
-        const gray = 'gray'
-
-        return {
-          U: yellow, R: gray, F: gray, L: gray, B: gray, D: gray
-        }
-      }
-
-      return {
-        U: yellow,
-        R: '#63AD26',
-        F: '#B20026',
-        L: '#0060BA',
-        B: 'orange',
-        D: 'white',
-      }
-    },
-  },
-}
-</script>
 
 <style scoped lang="stylus">
 .cube-picture
