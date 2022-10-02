@@ -24,7 +24,7 @@ I'm currently learning 3LLL, so I'm doing 2-look OLL, followed by a single PLL.
 </CustomAlgorithm>
 
 <CustomAlgorithm initString="LUUUUULUURRRRRRRRRUFFFFFFFFDDDDDDDDDBLFLLLLLLBBUBBBBBB" inverse grayscale>
-  (Rw U) (R' U') (Rw' F) (R F')
+  (Rw U) (R' U') (Rw'F) (R F')
 </CustomAlgorithm>
 
 <CustomAlgorithm scramble="R' F R B' R' F' R B" inverse grayscale>

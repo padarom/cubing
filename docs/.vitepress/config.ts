@@ -35,7 +35,29 @@ export default defineConfig({
           { text: 'F2L', link: '/algorithms/333/f2l' },
           { text: 'OLL', link: '/algorithms/333/oll' },
           { text: 'PLL', link: '/algorithms/333/pll' },
-        ]
+        ],
+      },
+      {
+        text: '4x4x4',
+        collapsible: false,
+        items: [
+          { text: 'Parity', link: '/algorithms/444/parity' },
+        ],
+      },
+      {
+        text: '5x5x5',
+        collapsible: false,
+        items: [
+          { text: 'Parity', link: '/algorithms/555/parity' },
+        ],
+      },
+      {
+        text: 'Megaminx',
+        collapsible: false,
+        items: [
+          { text: 'OLL', link: '/algorithms/megaminx/oll' },
+          { text: 'PLL', link: '/algorithms/megaminx/pll' },
+        ],
       },
     ],
   },

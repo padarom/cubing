@@ -5,7 +5,7 @@
     scramble="R U R' U' R' F R2 U' R' U' R U R' F'"
     :arrows="[[2,8,false,2], [3,5]]"
 >
-
+    TBD
 </CustomAlgorithm>
 
 ## N Perm
@@ -22,7 +22,7 @@
     scramble="R' U R' F R F' R U' R' F' U F R U R' U' R"
     :arrows="[[2,6,false,2], [1,7]]"
 >
-    R' (U R U' R') (F' U' F) (R U R' F) (R' F' R U' R)
+    R' (U R U' R') (F' U' F) (R U R' F) (R'&nbsp;F'&nbsp;R&nbsp;U'&nbsp;R)
 </CustomAlgorithm>
 
 ## G Perm
