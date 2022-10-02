@@ -72,7 +72,7 @@ const colorScheme = computed(() => {
 </script>
 
 <template>
-  <svg class="cube-picture" width="200" height="200" viewBox="-1.1 -1.1 5.2 5.2">
+  <svg class="cube-picture w-full h-full" viewBox="-1.1 -1.1 5.2 5.2">
     <defs>
       <marker id="arrow-1"
         markerWidth="4"
