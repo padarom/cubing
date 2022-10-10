@@ -1,0 +1,4 @@
+---
+twisty:
+  puzzle: megaminx
+---

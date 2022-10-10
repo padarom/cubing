@@ -1,9 +1,11 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@types/lodash': ^4.14.186
   autoprefixer: ^10.4.8
-  cubejs: ^1.3.2
+  cubing: ^0.30.0
   esno: ^0.16.3
+  lodash: ^4.17.21
   postcss: ^8.4.16
   stylus: ^0.59.0
   tailwindcss: ^3.1.8
@@ -14,8 +16,9 @@ specifiers:
 
 dependencies:
   autoprefixer: 10.4.8_postcss@8.4.16
-  cubejs: 1.3.2
+  cubing: 0.30.0
   esno: 0.16.3
+  lodash: 4.17.21
   postcss: 8.4.16
   stylus: 0.59.0
   tailwindcss: 3.1.8_postcss@8.4.16
@@ -23,6 +26,9 @@ dependencies:
   vite-plugin-pwa: 0.12.3_vite@3.0.9
   vitepress: 1.0.0-alpha.10_stylus@0.59.0
   vue: 3.2.37
+
+devDependencies:
+  '@types/lodash': 4.14.186
 
 packages:
 
@@ -1509,6 +1515,10 @@ packages:
     resolution: {integrity: sha512-EYNwp3bU+98cpU4lAWYYL7Zz+2gryWH1qbdDTidVd6hkiR6weksdbMadyXKXNPEkQFhXM+hVO9ZygomHXp+AIw==}
     dev: false
 
+  /@types/lodash/4.14.186:
+    resolution: {integrity: sha512-eHcVlLXP0c2FlMPm56ITode2AgLMSa6aJ05JTTbYbI+7EMkCEE5qk2E41d5g2lCVTqRe0GnnRFurmlCsDODrPw==}
+    dev: true
+
   /@types/node/18.7.13:
     resolution: {integrity: sha512-46yIhxSe5xEaJZXWdIBP7GU4HDTG8/eo0qd9atdiL+lFpA03y8KS+lkTN834TWJj5767GbWv4n/P6efyTFt1Dw==}
     dev: false
@@ -1519,12 +1529,22 @@ packages:
       '@types/node': 18.7.13
     dev: false
 
+  /@types/three/0.144.0:
+    resolution: {integrity: sha512-psvEs6q5rLN50jUYZ3D4pZMfxTbdt3A243blt0my7/NcL6chaCZpHe2csbCtx0SOD9fI/XnF3wnVUAYZGqCSYg==}
+    dependencies:
+      '@types/webxr': 0.5.0
+    dev: false
+
   /@types/trusted-types/2.0.2:
     resolution: {integrity: sha512-F5DIZ36YVLE+PN+Zwws4kJogq47hNgX3Nx6WyDJ3kcplxyke3XIzB8uK5n/Lpm1HBsbGzd6nmGehL8cPekP+Tg==}
     dev: false
 
   /@types/web-bluetooth/0.0.15:
     resolution: {integrity: sha512-w7hEHXnPMEZ+4nGKl/KDRVpxkwYxYExuHOYXyzIzCDzEZ9ZCGMAewulr9IqJu2LR4N37fcnb1XVeuZ09qgOxhA==}
+    dev: false
+
+  /@types/webxr/0.5.0:
+    resolution: {integrity: sha512-IUMDPSXnYIbEO2IereEFcgcqfDREOgmbGqtrMpVPpACTU6pltYLwHgVkrnYv0XhWEcjio9sYEfIEzgn3c7nDqA==}
     dev: false
 
   /@vitejs/plugin-vue/3.0.3_vite@3.0.9+vue@3.2.37:
@@ -1918,6 +1938,10 @@ packages:
     resolution: {integrity: sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==}
     dev: false
 
+  /comlink/4.3.1:
+    resolution: {integrity: sha512-+YbhUdNrpBZggBAHWcgQMLPLH1KDF3wJpeqrCKieWQ8RL7atmgsgTQko1XEBK6PsecfopWNntopJ+ByYG1lRaA==}
+    dev: false
+
   /commander/2.20.3:
     resolution: {integrity: sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==}
     dev: false
@@ -1959,10 +1983,14 @@ packages:
     resolution: {integrity: sha512-/WwNkdXfckNgw6S5R125rrW8ez139lBHWouiBvX8dfMFtcn6V81REDqnH7+CRpRipfYlyU1CmOnOxrmGcFOjeA==}
     dev: false
 
-  /cubejs/1.3.2:
-    resolution: {integrity: sha512-NuHpWIR/mpjrP3YpU6OaXAbo34idWlzo86GnAqGDG96OHDKyavTAelMyruZ77SgPhQ8l9IcP6/rzXoNcAy9OaQ==}
+  /cubing/0.30.0:
+    resolution: {integrity: sha512-nViJKzqWQWHIDyyLvI5gvgRLKDy0PYD7SUwIHxXG0cUTqsNRBBayUpLvOrWJvkF9qjJnME3iR4NaXfSv3SmCGg==}
+    engines: {node: ^16.13 || >=18}
     dependencies:
-      npm: 6.14.17
+      '@types/three': 0.144.0
+      '@types/web-bluetooth': 0.0.15
+      comlink: 4.3.1
+      three: 0.144.0
     dev: false
 
   /debug/4.3.4:
@@ -2991,136 +3019,6 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: false
 
-  /npm/6.14.17:
-    resolution: {integrity: sha512-CxEDn1ydVRPDl4tHrlnq+WevYAhv4GF2AEHzJKQ4prZDZ96IS3Uo6t0Sy6O9kB6XzqkI+J00WfYCqqk0p6IJ1Q==}
-    engines: {node: 6 >=6.2.0 || 8 || >=9.3.0}
-    hasBin: true
-    dev: false
-    bundledDependencies:
-      - abbrev
-      - ansicolors
-      - ansistyles
-      - aproba
-      - archy
-      - bin-links
-      - bluebird
-      - byte-size
-      - cacache
-      - call-limit
-      - chownr
-      - ci-info
-      - cli-columns
-      - cli-table3
-      - cmd-shim
-      - columnify
-      - config-chain
-      - debuglog
-      - detect-indent
-      - detect-newline
-      - dezalgo
-      - editor
-      - figgy-pudding
-      - find-npm-prefix
-      - fs-vacuum
-      - fs-write-stream-atomic
-      - gentle-fs
-      - glob
-      - graceful-fs
-      - has-unicode
-      - hosted-git-info
-      - iferr
-      - imurmurhash
-      - infer-owner
-      - inflight
-      - inherits
-      - ini
-      - init-package-json
-      - is-cidr
-      - json-parse-better-errors
-      - JSONStream
-      - lazy-property
-      - libcipm
-      - libnpm
-      - libnpmaccess
-      - libnpmhook
-      - libnpmorg
-      - libnpmsearch
-      - libnpmteam
-      - libnpx
-      - lock-verify
-      - lockfile
-      - lodash._baseindexof
-      - lodash._baseuniq
-      - lodash._bindcallback
-      - lodash._cacheindexof
-      - lodash._createcache
-      - lodash._getnative
-      - lodash.clonedeep
-      - lodash.restparam
-      - lodash.union
-      - lodash.uniq
-      - lodash.without
-      - lru-cache
-      - meant
-      - mississippi
-      - mkdirp
-      - move-concurrently
-      - node-gyp
-      - nopt
-      - normalize-package-data
-      - npm-audit-report
-      - npm-cache-filename
-      - npm-install-checks
-      - npm-lifecycle
-      - npm-package-arg
-      - npm-packlist
-      - npm-pick-manifest
-      - npm-profile
-      - npm-registry-fetch
-      - npm-user-validate
-      - npmlog
-      - once
-      - opener
-      - osenv
-      - pacote
-      - path-is-inside
-      - promise-inflight
-      - qrcode-terminal
-      - query-string
-      - qw
-      - read-cmd-shim
-      - read-installed
-      - read-package-json
-      - read-package-tree
-      - read
-      - readable-stream
-      - readdir-scoped-modules
-      - request
-      - retry
-      - rimraf
-      - safe-buffer
-      - semver
-      - sha
-      - slide
-      - sorted-object
-      - sorted-union-stream
-      - ssri
-      - stringify-package
-      - tar
-      - text-table
-      - tiny-relative-date
-      - uid-number
-      - umask
-      - unique-filename
-      - unpipe
-      - update-notifier
-      - uuid
-      - validate-npm-package-license
-      - validate-npm-package-name
-      - which
-      - worker-farm
-      - write-file-atomic
-
   /object-hash/3.0.0:
     resolution: {integrity: sha512-RSn9F68PjH9HqtltsSnqYC1XXoWe9Bju5+213R98cNGttag9q9yAOTzdbsqvIa7aNm5WffBZFpWYr2aWrklWAw==}
     engines: {node: '>= 6'}
@@ -3598,6 +3496,10 @@ packages:
       acorn: 8.8.0
       commander: 2.20.3
       source-map-support: 0.5.21
+    dev: false
+
+  /three/0.144.0:
+    resolution: {integrity: sha512-R8AXPuqfjfRJKkYoTQcTK7A6i3AdO9++2n8ubya/GTU+fEHhYKu1ZooRSCPkx69jbnzT7dD/xEo6eROQTt2lJw==}
     dev: false
 
   /to-fast-properties/2.0.0:

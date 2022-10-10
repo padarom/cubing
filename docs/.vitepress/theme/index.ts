@@ -1,11 +1,11 @@
 import './tailwind.postcss'
 
 import DefaultTheme from 'vitepress/theme'
-import CustomAlgorithm from '../components/CustomAlgorithm.vue'
+import CubingAlgorithm from '../components/CubingAlgorithm.vue'
 
 export default {
   ...DefaultTheme,
   enhanceApp({ app }) {
-    app.component('CustomAlgorithm', CustomAlgorithm)
+    app.component('CubingAlgorithm', CubingAlgorithm)
   }
 }

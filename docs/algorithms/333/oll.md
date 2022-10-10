@@ -1,48 +1,66 @@
+---
+twisty:
+  puzzle: 3x3x3
+  visualization: experimental-2D-LL
+  experimentalStickering: OLL
+---
+
 # OLL
 I'm currently learning 3LLL, so I'm doing 2-look OLL, followed by a single PLL.
 
 ## Edges
 ### Bar
-<CustomAlgorithm scramble="F R' F' U2 R U R' U R2 U2 R' U" grayscale>
-  F (R U R' U') F
-</CustomAlgorithm>
+<CubingAlgorithm
+  :config="{ alg: `F R' F' U2 R U R' U R2 U2 R' U` }"
+  algorithm="F (R U R' U') F'"
+/>
 
 ### L
-<CustomAlgorithm scramble="R' F R F' U2 R2 B' R' B R'" grayscale>
-  Fw (R U R' U') Fw'
-</CustomAlgorithm>
+<CubingAlgorithm
+  :config="{ alg: `R' F R F' U2 R2 B' R' B R'` }"
+  algorithm="Fw (R U R' U') Fw'"
+/>
 
 ### All Edges
-
-<CustomAlgorithm scramble="R U2 R2 F R F' U2 R' F R F'" grayscale>
-  F (R U R' U') F' Fw (R U R' U') Fw'
-</CustomAlgorithm>
+<CubingAlgorithm
+  :config="{ alg: `R U2 R2 F R F' U2 R' F R F'` }"
+  algorithm="F (R U R' U') F' Fw (R U R' U') Fw'"
+/>
 
 ## Corners
-<CustomAlgorithm scramble="R2 D R' U2 R D' R' U2 R'" inverse grayscale>
-  (R2' D) (R' U2) (R D') (R' U2 R')
-</CustomAlgorithm>
+<CubingAlgorithm
+  algorithm="(R2' D) (R' U2) (R D') (R' U2 R')"
+  show-inverse
+/>
 
-<CustomAlgorithm initString="LUUUUULUURRRRRRRRRUFFFFFFFFDDDDDDDDDBLFLLLLLLBBUBBBBBB" inverse grayscale>
-  (Rw U) (R' U') (Rw'F) (R F')
-</CustomAlgorithm>
+<CubingAlgorithm
+  algorithm="(Rw U) (R' U') (Rw' F) (R F')"
+  show-inverse
+/>
 
-<CustomAlgorithm scramble="R' F R B' R' F' R B" inverse grayscale>
-  (R' F) (R B') (R' F') (R B)
-</CustomAlgorithm>
+<CubingAlgorithm
+  algorithm="(R' F) (R B') (R' F') (R B)"
+  show-inverse
+/>
 
-<CustomAlgorithm scramble="R U R' U R U2 R'" inverse grayscale>
-  (R U R' U) (R U2 R')
-</CustomAlgorithm>
+<CubingAlgorithm
+  name="Sune"
+  algorithm="(R U R' U) (R U2 R')"
+  show-inverse
+/>
 
-<CustomAlgorithm scramble="R U2 R' U' R U' R'" inverse grayscale>
-  (R U2) (R' U' R U' R')
-</CustomAlgorithm>
+<CubingAlgorithm
+  name="Anti-Sune"
+  algorithm="(R U2) (R' U' R U' R')"
+  show-inverse
+/>
 
-<CustomAlgorithm scramble="R U2 R2 U' R2 U' R2 U2 R" inverse grayscale>
-  (R U2') (R2' U') (R2 U') (R2' U2' R)
-</CustomAlgorithm>
+<CubingAlgorithm
+  algorithm="(R U2') (R2' U') (R2 U') (R2' U2' R)"
+  show-inverse
+/>
 
-<CustomAlgorithm scramble="R U2 R' U' R U R' U' R U' R'" inverse grayscale>
-  F (R U R' U') (R U R' U') (R U R' U') F'
-</CustomAlgorithm>
+<CubingAlgorithm
+  algorithm="F (R U R' U') (R U R' U') (R U R' U') F'"
+  show-inverse
+/>
