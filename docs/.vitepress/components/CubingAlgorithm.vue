@@ -3,7 +3,7 @@ import { getCurrentInstance, onMounted, defineProps, PropType } from 'vue'
 import { useData } from 'vitepress'
 import { TwistyPlayer, TwistyPlayerConfig } from 'cubing/twisty'
 import { Alg } from 'cubing/alg'
-import { merge } from 'lodash'
+import merge from 'lodash/merge'
 
 const props = defineProps({
   algorithm: String,
