@@ -1,6 +1,6 @@
 [build.environment]
   NPM_FLAGS = "--version"
-  NODE_VERSION = "18.6"
+  NODE_VERSION = "22"
 
 [build]
   publish = "docs/.vitepress/dist"
