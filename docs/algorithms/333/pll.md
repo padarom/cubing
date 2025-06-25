@@ -13,19 +13,15 @@ twisty:
 
 <CubingAlgorithm 
   name="Aa Perm"
-  algorithm="x (R' U R') D2 (R U' R') D2 R2"
+  algorithm="(x) (R' U R') D2 (R U' R') D2 R2 (x')"
 />
 
 ### Ab
 
 <CubingAlgorithm 
   name="Ab Perm"
-  algorithm="x R2 D2 (R U R') D2 (R U' R)"
-/>
-
-<CubingAlgorithm 
-  name="Ab Perm (Alternative)"
-  algorithm="[y'] x (L U' L) D2 (L' U L) D2 L2"
+  algorithm="(x) R2 D2 (R U R') D2 (R U' R)"
+  alternative="[y'] x (L U' L) D2 (L' U L) D2 L2"
 />
 
 ### E
@@ -41,22 +37,14 @@ twisty:
 <CubingAlgorithm 
   name="Ua Perm"
   algorithm="(R U' R U) (R U) (R U') (R' U' R2)"
-/>
-
-<CubingAlgorithm 
-  name="Ua Perm (Alternative)"
-  algorithm="[y2] (R2 U' (R' U' R U) (R U) (R U' R)"
+  alternative="(y2) (R2 U' (R' U' R U) (R U) (R U' R) (y2')"
 />
 
 ### Ub
 <CubingAlgorithm 
   name="Ub Perm"
   algorithm="(R2 U) (R U R' U') (R' U') (R' U R')"
-/>
-
-<CubingAlgorithm 
-  name="Ub Perm (Alternative)"
-  algorithm="[y2] (R' U R' U') (R' U') (R' U) (R U R2)"
+  alternative="[y2] (R' U R' U') (R' U') (R' U) (R U R2)"
 />
 
 ### H
