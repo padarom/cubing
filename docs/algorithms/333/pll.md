@@ -1,8 +1,10 @@
 ---
 twisty:
   puzzle: 3x3x3
-  visualization: experimental-2D-LL
+  visualization: PG3D
   experimentalStickering: PLL
+  controlPanel: bottom-row
+  viewerLink: none
 ---
 
 # PLL
@@ -13,14 +15,14 @@ twisty:
 
 <CubingAlgorithm 
   name="Aa Perm"
-  algorithm="(x) (R' U R') D2 (R U' R') D2 R2 (x')"
+  algorithm="x (R' U R') D2 (R U' R') D2 R2"
 />
 
 ### Ab
 
 <CubingAlgorithm 
   name="Ab Perm"
-  algorithm="(x) R2 D2 (R U R') D2 (R U' R)"
+  algorithm="x R2 D2 (R U R') D2 (R U' R)"
   alternative="[y'] x (L U' L) D2 (L' U L) D2 L2"
 />
 
@@ -37,7 +39,7 @@ twisty:
 <CubingAlgorithm 
   name="Ua Perm"
   algorithm="(R U' R U) (R U) (R U') (R' U' R2)"
-  alternative="(y2) (R2 U' (R' U' R U) (R U) (R U' R) (y2')"
+  alternative="[y2] (R2 U' (R' U' R U) (R U) (R U' R)"
 />
 
 ### Ub

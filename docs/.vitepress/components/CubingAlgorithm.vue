@@ -56,7 +56,7 @@ onMounted(() => {
     <div class="text-xl md:text-2xl pl-3">
       <div class="text-sm font-medium">{{ props.name || 'Algorithm' }}</div>
       <div>{{ algorithm }}</div>
-      <div v-if="alternative">
+      <div v-if="alternative" class="mt-2">
         <span class="block text-sm">Or</span>
         {{ alternative }}
       </div>
